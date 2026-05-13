@@ -1,0 +1,80 @@
+name: DCT Quality Checks
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.markdownlint.json'
+      - '.github/workflows/docs-quality.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+
+jobs:
+  markdown-quality:
+    name: Lint Markdown, vérifier liens et rendu Mermaid
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install tools
+        run: |
+          npm install -g markdownlint-cli
+          npm install -g markdown-link-check
+          npm install -g @mermaid-js/mermaid-cli
+
+      - name: Lint Markdown (markdownlint)
+        run: |
+          markdownlint '**/*.md' \
+            --ignore node_modules \
+            --ignore '**/CHANGELOG.md'
+
+      - name: Check links (markdown-link-check)
+        run: |
+          # Configuration : timeout court sur les liens externes,
+          # mais on échoue seulement sur les liens internes morts.
+          cat > .mlc.json <<'EOF'
+          {
+            "timeout": "5s",
+            "retryOn429": true,
+            "aliveStatusCodes": [200, 206, 301, 302, 304, 403],
+            "ignorePatterns": [
+              {"pattern": "^http://localhost"},
+              {"pattern": "^https://supevents.example"}
+            ]
+          }
+          EOF
+          find . -name '*.md' -not -path './node_modules/*' \
+            -exec markdown-link-check -c .mlc.json -q {} \;
+
+      - name: Validate Mermaid blocks
+        run: |
+          # Extraction des blocs ```mermaid``` puis tentative de rendu en SVG.
+          # Tout échec de rendu fait échouer le job.
+          set -e
+          mkdir -p /tmp/mermaid-checks
+          counter=0
+          find . -name '*.md' -not -path './node_modules/*' | while read -r mdfile; do
+            awk '
+              /^```mermaid$/ { capture=1; next }
+              /^```$/ { if (capture) { capture=0; print "---NEXT---" } ; next }
+              capture { print }
+            ' "$mdfile" | awk -v base="/tmp/mermaid-checks/diag" '
+              BEGIN { n=0; f=base"-"n".mmd" }
+              /^---NEXT---$/ { close(f); n++; f=base"-"n".mmd"; next }
+              { print > f }
+            '
+          done
+          for diag in /tmp/mermaid-checks/diag-*.mmd; do
+            [ -s "$diag" ] || continue
+            mmdc -i "$diag" -o "${diag%.mmd}.svg" --quiet
+          done
+          echo "Tous les blocs Mermaid se rendent correctement."

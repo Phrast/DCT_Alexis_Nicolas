@@ -1,0 +1,49 @@
+# =============================================================================
+# CODEOWNERS — DCT SupEvents
+# =============================================================================
+# Membres du groupe :
+#   @nicolas  — Back-end, architecture, API, CI/CD, ADR
+#   @alexis   — Front-end, accessibilité, QA, traçabilité, glossaire
+# =============================================================================
+
+# Fallback global
+*   @nicolas @alexis
+
+# Configuration dépôt
+README.md           @nicolas
+.gitignore          @nicolas
+CODEOWNERS          @nicolas
+
+# §1 — §3
+docs/01-page-de-garde.md          @nicolas
+docs/02-historique-revisions.md   @nicolas
+docs/03-glossaire.md              @alexis
+
+# §4 — §5
+docs/04-contexte-objectifs.md     @alexis
+docs/05-perimetre-limites.md      @nicolas @alexis
+
+# §6 Architecture
+docs/06-architecture-generale/06.1-vue-logique.md     @nicolas
+docs/06-architecture-generale/06.2-vue-processus.md   @nicolas
+docs/06-architecture-generale/06.3-vue-deploiement.md @nicolas
+docs/06-architecture-generale/06.4-vue-donnees.md     @nicolas
+
+# §7 Modules
+docs/07-conception-detaillee/07-modules.md  @nicolas
+
+# §8 API
+docs/08-interfaces-api.md        @nicolas
+
+# §9 — §12
+docs/09-exigences-transverses.md @alexis @nicolas
+docs/10-matrice-tracabilite.md   @alexis
+docs/12-annexes.md               @alexis
+
+# ADR
+docs/adr/README.md               @nicolas
+docs/adr/template.md             @nicolas
+docs/adr/ADR-*.md                @nicolas
+
+# TP 1.1 (analyse externe, hors DCT SupEvents)
+analyse-critique-roombook.md     @nicolas

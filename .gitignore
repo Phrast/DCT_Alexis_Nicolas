@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Outputs / build
+node_modules/
+dist/
+build/
+out/
+
+# Local secrets et dumps
+.env
+.env.*
+!.env.example
+*.local
+*.dump
+*.sql
+
+# Mermaid / generation artifacts
+*.mmd.tmp
+
+# OS et logs temporaires
+*.log
+.cache/
