@@ -168,7 +168,7 @@ Trois exigences chiffrées couvrent les SLO de la plateforme. Le format suit le 
 
 ### c) Procédures liées aux droits des personnes
 
-**Droit d'accès — export complet**
+#### Droit d'accès — export complet
 
 | Élément | Détail |
 |---|---|
@@ -179,7 +179,7 @@ Trois exigences chiffrées couvrent les SLO de la plateforme. Le format suit le 
 | Délai contractuel | ≤ 30 jours (obligation RGPD article 12). Cible interne : 72 h. |
 | Traces conservées | Entrée dans l'audit log : `who`, `when`, `requestId`. Conservation 5 ans. |
 
-**Droit à l'oubli — suppression ou anonymisation**
+#### Droit à l'oubli — suppression ou anonymisation
 
 | Élément | Détail |
 |---|---|
@@ -191,7 +191,7 @@ Trois exigences chiffrées couvrent les SLO de la plateforme. Le format suit le 
 | Délai contractuel | ≤ 30 jours après demande. Délai effectif typique : 48 h. |
 | Traces conservées | Audit log avec hash de la demande, sans identifiant nominatif. |
 
-**Droit de rectification**
+#### Droit de rectification
 
 | Élément | Détail |
 |---|---|
