@@ -15,21 +15,27 @@
 ## Alternatives envisagées
 
 ### [Alternative 1]
+
 [Description, raison de son écart]
 
 ### [Alternative 2]
+
 [Description, raison de son écart]
 
 ### [Alternative 3]
+
 [Description, raison de son écart]
 
 ## Conséquences
 
 ### Positives
+
 [Bénéfices de la décision]
 
 ### Négatives
+
 [Coûts, contraintes nouvelles, complexité ajoutée]
 
 ### Dette acceptée
+
 [Ce qu'on sait avoir reporté ou compromis. Honnêteté requise.]

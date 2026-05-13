@@ -66,7 +66,7 @@ Posture adoptée : un développeur senior arrive dans l'équipe demain matin. Il
 |---|---|---|---|---|
 | M1 | Liens internes valides (pas de lien mort) | 1/2 | Le `README.md` pointe vers `docs/06-architecture-generale/06.3-vue-deploiement.md` (placeholder) et `docs/12-annexes.md` (placeholder). Liens techniquement valides mais vers contenu vide — confusion possible. | Marquer ces liens avec le statut `🟡 TODO` visible côté lecteur (déjà le cas dans le sommaire, mais à renforcer). |
 | M2 | Date de dernière mise à jour visible par section | 0/2 | Aucune métadonnée date dans les fichiers `.md` hormis §1 et §2. Un lecteur ne sait pas si une fiche est récente. | Ajouter une ligne `*Dernière mise à jour : YYYY-MM-DD*` en bas (ou tête) de chaque fichier de section. |
-| M3 | CODEOWNERS présent et adapté au groupe | 2/2 | Fichier `CODEOWNERS` à la racine, attribution par section, commentaires explicites. Note : à déplacer dans `.github/CODEOWNERS` pour conformité TP 1.7. |
+| M3 | CODEOWNERS présent et adapté au groupe | 2/2 | Fichier `CODEOWNERS` à la racine, attribution par section, commentaires explicites. Note : à déplacer dans `.github/CODEOWNERS` pour conformité TP 1.7. | Déplacer dans `.github/CODEOWNERS`. |
 | M4 | ADR numérotés séquentiellement et indexés | 2/2 | ADR-001, 002, 003 + index `README.md` avec table. Format Nygard respecté. | — |
 | M5 | Pipeline CI documentaire en place | 0/2 | Aucun workflow CI au moment de l'audit. Aucun linter Markdown. Aucune vérification automatique des liens ou des blocs Mermaid. | Mise en place dans la phase B/C du TP 1.7 — workflow `.github/workflows/docs-quality.yml`. |
 | **Total** | | **5/10** | | |

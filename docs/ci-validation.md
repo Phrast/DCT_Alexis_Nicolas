@@ -19,7 +19,7 @@ Trois scénarios injectés dans un fichier `docs/_scratch/ci-test.md` :
 
 | Scénario injecté | Job CI attendu | Résultat |
 |---|---|---|
-| Lien interne mort : `[lien KO](../inexistant.md)` | `Check links` échoue | ✅ Détecté |
+| Lien interne mort vers un fichier inexistant (syntaxe `[texte](chemin)` pointant hors dépôt) | `Check links` échoue | ✅ Détecté |
 | Bloc Mermaid invalide : `graph TD\n  A --> B unclosed (` | `Validate Mermaid blocks` échoue | ✅ Détecté |
 | Faute Markdown lint (titre `#` sans saut de ligne) | `Lint Markdown` échoue | ✅ Détecté |
 
